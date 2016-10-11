@@ -1,0 +1,43 @@
+canvas{ 
+    width:100%;
+    height:100%;
+    background:white;
+}
+body,html{
+    height:100%;
+    margin:0;
+    overflow-y:hidden;
+}
+div{
+	text-align:center;
+}
+.sound-table{
+	position:absolute;
+	top:10%;
+	left:20%;
+	right:20%;
+}
+.keyboard{
+	position: absolute;
+	bottom: 10%;
+	left:0;
+	right:0;
+	margin:0 auto;
+}
+.line div{
+	height:35px;
+	width:35px;
+	display:inline-block;
+	border:2px solid black;
+	margin:2px;
+}
+p{
+	margin:0;
+	line-height:2em;
+}
+.arrow{
+	background:teal;
+}
+.letter:hover{
+	background:orange;
+}
