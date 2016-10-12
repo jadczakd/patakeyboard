@@ -70,8 +70,8 @@ div{
 .sound-table{
 	position:absolute;
 	top:10%;
-	left:20%;
-	right:20%;
+	left:5%;
+	right:5%;
 }
 .keyboard{
 	position: absolute;
@@ -100,6 +100,11 @@ p,span{
 }
 .line div.current{
 	border:4px dotted red;
+}
+.nowP{
+	-webkit-box-shadow: inset 0px 0px 5px 5px rgba(3,104,255,1);
+	-moz-box-shadow: inset 0px 0px 5px 5px rgba(3,104,255,1);
+	box-shadow: inset 0px 0px 5px 5px rgba(3,104,255,1);
 }
 .box{
     position:absolute;
