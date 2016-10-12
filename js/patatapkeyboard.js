@@ -336,8 +336,9 @@ hideB.addEventListener("click",function(){
 	document.querySelector(".box").style.display = "none";
 	activeCell();
 })
+var stopI;
 var interv = function(){
-	stopI = window.setInterval(loop, 500);
+	stopI = window.setInterval(loop, 350);
 }
 var stopInt = function(num){
 	return window.clearInterval(num)
