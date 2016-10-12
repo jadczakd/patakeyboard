@@ -183,33 +183,28 @@ var keySounds={m:"piston-3.mp3",n:"zig-zag.mp3",b:"wipe.mp3",v:"veil.mp3",c:"ufo
 			}
 		}
 
-		var previousSet = function(){
-			if(currentSetI==0){
-				currentSetI=5;
-				previousSetI=4;
-				nextSetI=0;
-				setColor();
-				generateAllHowls();
-			}else{
-				currentSetI--;
-				nextSetI++;
-				previousSetI--;
-				setColor();
-				generateAllHowls();
-			}
-		}
 		var generateAllHowls = function(letter){
 		for(key in keysData){
 			keysData[key]["sound"] = new Howl({src: generateHowl(key)})
+			}
 		}
-	}
         var setColor = function(){
 			canv.style.background = bgcolors[currentSetI];
 		}
-    
+    	
+    	var currentCell = [ 0, 0 ];
+
+    	var removeActive = function(){
+    		soundTable[currentCell[0]].children[currentCell[1]].classList.remove("current");
+    	}
+		var activeCell = function(){
+			soundTable[currentCell[0]].children[currentCell[1]].classList.add("current");
+		};
+
 		var canv = document.querySelector("canvas");
 		var circles = [];
 		function onKeyDown(event){
+			removeActive();
 			if(letters.indexOf(event.key)>=0){
 				var maxPoint = new Point(view.size.width, view.size.height);
 				var randomPoint = Point.random();
@@ -218,39 +213,68 @@ var keySounds={m:"piston-3.mp3",n:"zig-zag.mp3",b:"wipe.mp3",v:"veil.mp3",c:"ufo
 				newCircle.fillColor = keysData[event.key].color;
 				keysData[event.key].sound.play();
 				circles.push(newCircle);
-			}else if(event.key=="up"){
+			}else if(event.key=="space"){
 				nextSet();
 			}else if(event.key=="down"){
-				previousSet();
+				if(currentCell[0]==3){
+					currentCell[0]=0;
+				}else{
+					currentCell[0]++;
+				}
+			}else if(event.key=="up"){
+				if(currentCell[0]==0){
+					currentCell[0]=3;
+				}else{
+					currentCell[0]--;
+				}
+			}else if(event.key=="left"){
+				if(currentCell[1]==0){
+					currentCell[1]=9;
+				}else{
+					currentCell[1]--;
+				}
+			}else if(event.key=="right"){
+				if(currentCell[1]==9){
+					currentCell[1]=0;
+				}else{
+				currentCell[1]++;
+				}
 			}
+			activeCell();
 		}
+
 
 		function onFrame(event){
 			for(var i = 0; i<circles.length; i++){
-				circles[i].fillColor.hue+=1;
-				circles[i].scale(0.93);
-				if(circles[i].area < 1){
+				circles[i].fillColor.hue+=3;
+				circles[i].scale(0.95);
+				if(circles[i].area < 3){
    				circles[i].remove();
 			    circles.splice(i, 1);
 			  }
 			}
 		}
-		var kletters = document.querySelectorAll(".letter");
-			for(var i=0;i<kletters.length;i++){
-				kletters[i].addEventListener("click", fillTableCell);
+
+		var kLetters = document.querySelectorAll(".letter");
+			for(var i=0;i<kLetters.length;i++){
+				kLetters[i].addEventListener("click", fillTableCell);
 		}
 
-var currentCell = [ 0, 0 ];
 var soundTable = document.querySelectorAll(".sound-table .line");
 	
 function fillTableCell(){
-	soundTable[currentCell[0]].children[currentCell[1]].textContent = set[currentSetI] + this.children[0].textContent;
-	if(currentCell[1]==9){
+	removeActive();
+	soundTable[currentCell[0]].children[currentCell[1]].children[0].textContent = set[currentSetI] + this.children[0].textContent;
+	if(currentCell[1]==9 && currentCell[0]<3){
 		currentCell[0]++;
 		currentCell[1]=0;
+	}else if(currentCell[1]==9 && currentCell[0]==3){
+		currentCell[0]==0;
+		currentCell[1]==1;
 	}else{
 	currentCell[1]++;
 	}
+	activeCell();
 }
 
 var currSound = 0 ;
@@ -280,7 +304,12 @@ var sound4 = new Howl({
 	}
 };
   	var startB = document.querySelector("#start");
-	
 	var stopB = document.querySelector("#stop");
-	startB.addEventListener("click", window.setInterval(loop, 1000));
-	stopB.addEventListener("click", window.clearInterval(loop,100));
+	var hideB = document.querySelector("#hide");
+	hideB.addEventListener("click",function(){
+		document.querySelector(".box").style.display = "none";
+		window.setInterval(loop, 500);
+		activeCell();
+	})
+
+	
