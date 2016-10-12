@@ -336,12 +336,8 @@ hideB.addEventListener("click",function(){
 	document.querySelector(".box").style.display = "none";
 	activeCell();
 })
-var stopI;
 var interv = function(){
-	stopI = window.setInterval(loop, 350);
+	stopI = window.setInterval(loop, 400);
 }
-var stopInt = function(num){
-	return window.clearInterval(num)
-}
+
 startB.addEventListener("click", interv);
-stopB.addEventListener("click", stopInt(stopI));
