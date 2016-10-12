@@ -7,8 +7,9 @@
    		var generateHowl = function(target){
   			  return "sounds/" + set[currentSetI] + "/" + keySounds[target];
 			}
-var keySounds={m:"piston-3.mp3",n:"zig-zag.mp3",b:"wipe.mp3",v:"veil.mp3",c:"ufo.mp3",x:"timer.mp3",z:"suspension.mp3",l:"strike.mp3",k:"squiggle.mp3",j:"splits.mp3",h:"prism-3.mp3",g:"prism-2.mp3",f:"prism-1.mp3",d:"piston-2.mp3",a:"pinwheel.mp3",s:"piston-1.mp3",q:"bubbles.mp3", w:"clay.mp3",e:"confetti.mp3",r:"corona.mp3",t:"dotted-spiral.mp3",y:"flash-1.mp3",u:"flash-2.mp3",i:"flash-3.mp3",o:"glimmer.mp3",p:"moon.mp3" };
-   var keysData = {
+	var shape = 1; 
+	var keySounds={m:"piston-3.mp3",n:"zig-zag.mp3",b:"wipe.mp3",v:"veil.mp3",c:"ufo.mp3",x:"timer.mp3",z:"suspension.mp3",l:"strike.mp3",k:"squiggle.mp3",j:"splits.mp3",h:"prism-3.mp3",g:"prism-2.mp3",f:"prism-1.mp3",d:"piston-2.mp3",a:"pinwheel.mp3",s:"piston-1.mp3",q:"bubbles.mp3", w:"clay.mp3",e:"confetti.mp3",r:"corona.mp3",t:"dotted-spiral.mp3",y:"flash-1.mp3",u:"flash-2.mp3",i:"flash-3.mp3",o:"glimmer.mp3",p:"moon.mp3" };
+    var keysData = {
     q: {
 		sound: new Howl({
   		src: "sounds/" + set[currentSetI] + "/"+ keySounds["q"] 
@@ -209,7 +210,28 @@ var keySounds={m:"piston-3.mp3",n:"zig-zag.mp3",b:"wipe.mp3",v:"veil.mp3",c:"ufo
 				var maxPoint = new Point(view.size.width, view.size.height);
 				var randomPoint = Point.random();
 				var point = maxPoint * randomPoint;
-				var newCircle = new Path.Circle(point, 250);
+				var randomR = Math.random()* 250+250;
+				if (shape === 1) {
+				var newCircle = new Path.RegularPolygon(point, 3, randomR);
+				shape++;	
+				}
+				else if (shape === 2) {
+				var newCircle = new Path.RegularPolygon(point, 4, randomR);
+				shape++;	
+				}
+				else if(shape === 3){
+				var newCircle = new Path.RegularPolygon(point, 5, randomR);
+				shape++;
+				}else if(shape === 4){
+				var newCircle = new Path.RegularPolygon(point, 6, randomR);
+				shape++;
+				}else if(shape === 5){
+				var newCircle = new Path.Circle(point, randomR);
+				shape++;
+				}else if(shape === 6){
+				var newCircle = new Path.Star(point, 10, 120, 90);
+				shape=1;
+				}
 				newCircle.fillColor = keysData[event.key].color;
 				keysData[event.key].sound.play();
 				circles.push(newCircle);
@@ -243,11 +265,12 @@ var keySounds={m:"piston-3.mp3",n:"zig-zag.mp3",b:"wipe.mp3",v:"veil.mp3",c:"ufo
 			activeCell();
 		}
 
-
+		var destination = Point.random() * view.size;
 		function onFrame(event){
 			for(var i = 0; i<circles.length; i++){
 				circles[i].fillColor.hue+=3;
 				circles[i].scale(0.95);
+				circles[i].rotate(3);
 				if(circles[i].area < 3){
    				circles[i].remove();
 			    circles.splice(i, 1);
