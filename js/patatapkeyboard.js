@@ -336,8 +336,20 @@ hideB.addEventListener("click",function(){
 	document.querySelector(".box").style.display = "none";
 	activeCell();
 })
-var interv = function(){
-	stopI = window.setInterval(loop, 400);
-}
 
+var stopI;
+var interv = function(){
+	stopI = setInterval(loop, 400);
+}
+var stopInt = function(){
+	clearInterval(stopI);
+	for(var i =0;  i<currSound;i++){
+	soundTable[0].children[i].classList.toggle("nowP");
+	soundTable[1].children[i].classList.toggle("nowP");
+	soundTable[2].children[i].classList.toggle("nowP");
+	soundTable[3].children[i].classList.toggle("nowP");
+	}
+	currSound=0;
+}
 startB.addEventListener("click", interv);
+stopB.addEventListener("click", stopInt);
