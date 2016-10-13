@@ -249,12 +249,12 @@ function onKeyDown(event){
 				}
 			}else if(event.key=="left"){
 				if(currentCell[1]==0){
-					currentCell[1]=19;
+					currentCell[1]=9;
 				}else{
 					currentCell[1]--;
 				}
 			}else if(event.key=="right"){
-				if(currentCell[1]==19){
+				if(currentCell[1]==9){
 					currentCell[1]=0;
 				}else{
 				currentCell[1]++;
@@ -285,10 +285,10 @@ var soundTable = document.querySelectorAll(".sound-table .line");
 function fillTableCell(){
 	removeActive();
 	soundTable[currentCell[0]].children[currentCell[1]].children[0].textContent = set[currentSetI] + this.children[0].textContent;
-	if(currentCell[1]==19 && currentCell[0]<3){
+	if(currentCell[1]==9 && currentCell[0]<3){
 		currentCell[0]++;
 		currentCell[1]=0;
-	}else if(currentCell[1]==19 && currentCell[0]==3){
+	}else if(currentCell[1]==9 && currentCell[0]==3){
 		currentCell[0]==0;
 		currentCell[1]==1;
 	}else{
@@ -323,7 +323,7 @@ var loop = function(){
 		soundTable[2].children[currSound].classList.toggle("nowP");
 		soundTable[3].children[currSound].classList.toggle("nowP");
 	}
-	if(currSound==19){
+	if(currSound==9){
 		currSound=0;
 	}else{
 		currSound++;
