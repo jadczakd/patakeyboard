@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>PatatapAMessage</title>
+	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/paper-full.js"></script>
 	<script type="text/javascript" src="js/howler.js"></script>
@@ -67,62 +68,61 @@
 				</br>
 				<li>Use Space to change the current set. You know it works if the background changes</li>
 				</br>
-				<li>Fill the top panel with the sounds you like - click on their representation on the digital keyboard</li>
+				<li>Fill the top panel with the sounds you like - click on their representation on the digital keyboard. Should you want to get rid of a sound simply click on the digital "Space"</li>
 				</br>
 				<li>Should you have any doubts about your sequence choice, use the arrows to navigate and change your mistakes. Remember "To err is human."</li>
 				<li>Enjoy your loop!</li>
 				</br>
-				<li>To add list : manipulating loop interval, keyDown event trigger instead of only sound playing, mp3 compiling+export</li>
+				<li>To add list : keeps growing and project is getting out of hand. I will not make it public for now.</li>
 				</br>
 				<li>Done : start + stop button, current column indicator</li>
 				</br>
 				<li>Ideas: OnScreen arrows to manipulate the volume / playback sound of each row?</li>
 			</ol>
 			</br>
-			<button id="hide">Hide instructions</button>
+			<button id="hide">Hide</button>
 		</div>
 		<div class="keyboard">
-			<button id="start">start</button>
-			<button id="cancel">stop</button>
-			<div class="line">
-				<div class="letter"><p>q</p></div>
-				<div class="letter"><p>w</p></div>
-				<div class="letter"><p>e</p></div>
-				<div class="letter"><p>r</p></div>
-				<div class="letter"><p>t</p></div>
-				<div class="letter"><p>y</p></div>
-				<div class="letter"><p>u</p></div>
-				<div class="letter"><p>i</p></div>
-				<div class="letter"><p>o</p></div>
-				<div class="letter"><p>p</p></div>
+			<div class="controls">
+				<button id="start">start</button>
+				<button id="cancel" disabled>stop</button>
+				<button id="inst"> ? </button>
+				<button id="restart">reset</button>
 			</div>
 			<div class="line">
-				<div class="letter"><p>a</p></div>
-				<div class="letter"><p>s</p></div>
-				<div class="letter"><p>d</p></div>
-				<div class="letter"><p>f</p></div>
-				<div class="letter"><p>g</p></div>
-				<div class="letter"><p>h</p></div>
-				<div class="letter"><p>j</p></div>
-				<div class="letter"><p>k</p></div>
-				<div class="letter"><p>l</p></div>
+				<button class="letter"><p>q</p></button>
+				<button class="letter"><p>w</p></button>
+				<button class="letter"><p>e</p></button>
+				<button class="letter"><p>r</p></button>
+				<button class="letter"><p>t</p></button>
+				<button class="letter"><p>y</p></button>
+				<button class="letter"><p>u</p></button>
+				<button class="letter"><p>i</p></button>
+				<button class="letter"><p>o</p></button>
+				<button class="letter"><p>p</p></button>
 			</div>
 			<div class="line">
-				<div class="letter"><p>z</p></div>
-				<div class="letter"><p>x</p></div>
-				<div class="letter"><p>c</p></div>
-				<div class="letter"><p>v</p></div>
-				<div class="letter"><p>b</p></div>
-				<div class="letter"><p>n</p></div>
-				<div class="letter"><p>m</p></div>
-				</div>
-			<div class="line">
-				<div class="arrow"><p>&#8593</p></div>
+				<button class="letter"><p>a</p></button>
+				<button class="letter"><p>s</p></button>
+				<button class="letter"><p>d</p></button>
+				<button class="letter"><p>f</p></button>
+				<button class="letter"><p>g</p></button>
+				<button class="letter"><p>h</p></button>
+				<button class="letter"><p>j</p></button>
+				<button class="letter"><p>k</p></button>
+				<button class="letter"><p>l</p></button>
 			</div>
 			<div class="line">
-				<div class="arrow"><p>&#8592</p></div>
-				<div class="arrow"><p>&#8595</p></div>
-				<div class="arrow"><p>&#8594</p></div>
+				<button class="letter"><p>z</p></button>
+				<button class="letter"><p>x</p></button>
+				<button class="letter"><p>c</p></button>
+				<button class="letter"><p>v</p></button>
+				<button class="letter"><p>b</p></button>
+				<button class="letter"><p>n</p></button>
+				<button class="letter"><p>m</p></button>
+			</div>
+			<div class="line">
+				<button class="space"></button>
 			</div>
 		</div>
 		<canvas  id="graphicsCanvas" resize></canvas>
