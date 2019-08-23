@@ -6,8 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/paper-full.js"></script>
 	<script type="text/javascript" src="js/howler.js"></script>
-	<script type="text/paperscript" src="js/patatapkeyboard.js" canvas="graphicsCanvas" async></script>
-	
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+		crossorigin="anonymous"></script>
 </head>
 	<body>
 		<div class="sound-table">
@@ -22,6 +24,15 @@
 					<div><span></span></div>
 					<div><span></span></div>
 					<div><span></span></div>
+					<div class="controls">
+							<button class="start">start</button>
+							<button class="cancel" disabled>stop</button>
+							<button class="restart">reset</button>
+							<input type="range" class="volume" name="volume" min="0" max="100">
+							<label for="volume">VOLUME</label>
+							<input type="range" class="speed" name="speed" min="100" max="2000">
+							<label for="speed">SPEED</label>
+						</div>
 				</div>
 				<div class="line">
 					<div><span></span></div>
@@ -34,6 +45,14 @@
 					<div><span></span></div>
 					<div><span></span></div>
 					<div><span></span></div>
+					<div class="controls">
+							<button class="start">start</button>
+							<button class="cancel" disabled>stop</button>
+							<button class="restart">reset</button>
+							<input type="range" class="volume" name="volume" min="0" max="100">
+							<label for="volume">VOLUME</label>
+							<input type="range" class="speed" name="speed" min="100" max="2000">							<label for="speed">SPEED</label>
+						</div>
 				</div>
 				<div class="line">
 					<div><span></span></div>
@@ -46,6 +65,15 @@
 					<div><span></span></div>
 					<div><span></span></div>
 					<div><span></span></div>
+					<div class="controls">
+							<button class="start">start</button>
+							<button class="cancel" disabled>stop</button>
+							<button class="restart">reset</button>
+							<input type="range" class="volume" name="volume" min="0" max="100">
+							<label for="volume">VOLUME</label>
+							<input type="range" class="speed" name="speed" min="100" max="2000">
+							<label for="speed">SPEED</label>
+						</div>
 				</div>
 				<div class="line">
 					<div><span></span></div>
@@ -58,7 +86,58 @@
 					<div><span></span></div>
 					<div><span></span></div>
 					<div><span></span></div>
+					<div class="controls">
+						<button class="start">start</button>
+						<button class="cancel" disabled>stop</button>
+						<button class="restart">reset</button>
+						<input type="range" class="volume" name="volume" min="0" max="100">
+						<label for="volume">VOLUME</label>
+						<input type="range" class="speed" name="speed" min="100" max="2000">
+						<label for="speed">SPEED</label>
+					</div>
 				</div>
+				<div class="line">
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div><span></span></div>
+						<div class="controls">
+							<button class="start">start</button>
+							<button class="cancel" disabled>stop</button>
+							<button class="restart">reset</button>
+							<input type="range" class="volume" name="volume" min="0" max="100">
+							<label for="volume">VOLUME</label>
+							<input type="range" class="speed" name="speed" min="100" max="2000">
+							<label for="speed">SPEED</label>
+						</div>
+					</div>
+					<div class="line">
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div><span></span></div>
+							<div class="controls">
+								<button class="start">start</button>
+								<button class="cancel" disabled>stop</button>
+								<button class="restart">reset</button>
+								<input type="range" class="volume" name="volume" min="0" max="100">
+								<label for="volume">VOLUME</label>
+								<input type="range" class="speed" name="speed" min="100" max="2000">
+								<label for="speed">SPEED</label>
+							</div>
+						</div>
 		</div>
 		<div class="box">
 			<h1>Here's how it works</h1>
@@ -83,12 +162,6 @@
 			<button id="hide">Hide</button>
 		</div>
 		<div class="keyboard">
-			<div class="controls">
-				<button id="start">start</button>
-				<button id="cancel" disabled>stop</button>
-				<button id="inst"> ? </button>
-				<button id="restart">reset</button>
-			</div>
 			<div class="line">
 				<button class="letter"><p>q</p></button>
 				<button class="letter"><p>w</p></button>
@@ -127,4 +200,5 @@
 		</div>
 		<canvas  id="graphicsCanvas" resize></canvas>
 	</body>
+	<script type="text/javascript" src="js/patatapkeyboard.js" canvas="graphicsCanvas" async></script>
 </html>

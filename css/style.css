@@ -59,11 +59,12 @@ canvas{
     height:100%;
     background:#FF6C5C;
 }
+
 body,html{
     height:100%;
     margin:0;
     overflow-y:hidden;
-    font-family: 'Luckiest Guy', cursive;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 div{
 	text-align:center;
@@ -76,12 +77,13 @@ div{
 }
 .keyboard{
 	position: absolute;
-	bottom: 10%;
+	bottom: 1%;
 	left:0;
 	right:0;
 	margin:0 auto;
 }
-.line div{
+
+.line div {
 	height:40px;
 	width:40px;
 	display:inline-block;
@@ -96,14 +98,32 @@ p,span{
 span{
 	color:transparent;
 }
-button{
-	font-family: 'Luckiest Guy', cursive;
+
+button {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-transform: uppercase;
+	height: 75px;
+	width: 75px;
+	border-radius:15%;
+	background: white;
+	color:black;
+	font-size: 0.9em;
+}
+
+button.letter {
 	height:50px;
 	width:50px;
-	border-radius:8px;
-	background:#5EFCA1;
-	color:white;
+	font-size: 1.5em;
 }
+
+button.start, button.cancel, button.restart {
+	width: 40px;
+	height: 40px;
+	padding: 1px;
+	font-size: 0.6em;
+	font-weight: bold;
+}
+
 .arrow{
 	background:teal;
 }
@@ -123,9 +143,7 @@ button{
 	-moz-box-shadow: inset 0px 0px 4px 4px white;
 	box-shadow: inset 0px 0px 4px 4px white;
 }
-.controls{
-	margin-bottom:8%;
-}
+
 .box{
 	letter-spacing: 1px;
     position:absolute;
@@ -147,15 +165,24 @@ div .space{
 	height:40px;
 	width:200px;
 }
+
 .fullCell{
 	background:#6C7A89;
 }
-#start,#cancel,#inst{
-	font-weight:bold;
-	color:black;
-	background:white
+
+.line .controls {
+	width: auto;
+	border: none;
 }
-#restart{
-	background:#9A0038;
-	color:white;
+
+.line {
+	margin: 1%;
+}
+
+#appearance3 .rs-range-color  {
+	background-color: black;
+}
+#appearance3 .rs-handle  {
+	background-color: #fff;
+	border: 5px solid black;
 }
